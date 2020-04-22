@@ -1,0 +1,21 @@
+﻿@model Candy
+    <div class="col-lg-3 col-md-3 col-sm-3">
+        <div class="thumbnail">
+            <img src="@Model.ImageThumbnailUrl" alt="image for candy shop" />
+            <div class="caption">
+                @*put on right side*@
+                <h3 class="pull-right">@Model.Price.ToString()</h3>
+                <h3><a asp-controller="Candy" asp-action="Details" asp-route-id="@Model.CandyId">@Model.Name</a></h3>
+                <h3>@Model.Description</h3>
+            </div>
+            <div class="addToCart">
+                <p class="button">
+                    <a class="btn btn-primary"
+                       asp-controller="ShoppingCart"
+                       asp-action="AddToShoppingCart"
+                       asp-route-candyId="@Model.CandyId">Add to Cart</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
